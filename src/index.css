@@ -1,13 +1,230 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&display=swap");
+
+:root {
+  --white: #f5f7fb;
+  font-size: 16px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+/* General */
+
+body {
+  margin: 0;
+  background: url("./svg/blob-1.svg") no-repeat top right,
+    url("./svg/blob-2.svg") no-repeat bottom left, var(--white);
+  background-attachment: fixed;
+  font-family: "Karla", sans-serif;
+  color: #293264;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  height: 100vh;
+  min-height: 100vh;
+  padding: 1em;
+}
+
+button {
+  background: #4d5b9e;
+  color: var(--white);
+  font-weight: 500;
+  margin: 1.5em 0;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: scale 0.2s;
+}
+
+button:hover {
+  scale: 1.1;
+}
+
+button:focus {
+  outline-color: #4d5b9e;
+  outline-offset: 4px;
+}
+
+@media (min-width: 500px) {
+  .container {
+    padding: 2em;
+  }
+}
+
+/* Typography */
+
+h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 0.5em;
+}
+
+p {
+  line-height: 1.6;
+}
+
+span,
+.small-font {
+  font-size: 0.8rem;
+}
+
+button {
+  font-size: 1.1rem;
+}
+
+@media (min-width: 500px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  span,
+  .small-font {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+  }
+}
+
+/* Intro */
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #4d5b9e;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Quiz */
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.quiz__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+  width: 100%;
+}
+
+/* Questions */
+
+.question {
+  padding-bottom: 1em;
+  border-bottom: 0.794239px solid #dbdef0;
+  width: 100%;
+}
+
+.question__answers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.question__answer {
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+  padding: 0.5em 1em;
+  border: 1.5px solid #4d5b9e;
+  border-radius: 0.8em;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.question__answer--clicked {
+  border: 1.5px solid var(--white);
+  background: #d6dbf5;
+}
+
+.question__answer--correct {
+  border: 1.5px solid var(--white);
+  background: #94d7a2;
+}
+
+.question__answer--incorrect {
+  border: 1.5px solid var(--white);
+  background: #f8bcbc;
+  opacity: 0.5;
+}
+
+.question__answer--not-picked {
+  opacity: 0.5;
+}
+
+@media (min-width: 720px) {
+  body {
+    background-size: 20%;
+  }
+
+  .container {
+    max-width: 900px;
+  }
+
+  .quiz {
+    text-align: left;
+  }
+
+  .question {
+    padding-bottom: 1.5em;
+  }
+
+  .question__answers {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-height: 900px) {
+  .quiz {
+    justify-content: center;
+    height: 100%;
+  }
 }
