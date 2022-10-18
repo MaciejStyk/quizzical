@@ -1,4 +1,6 @@
-Try your knowledge using this app. Built with React
+# quizzical
+
+Try your knowledge using this app. Built with React.
 
 https://maciejstyk.github.io/quizzical
 
