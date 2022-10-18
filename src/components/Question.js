@@ -30,7 +30,7 @@ function Question(props) {
     <span
       key={answer.id}
       className={getClassName(answer)}
-      onClick={() => clickAnswer(id, answer.id)}
+      onClick={() => !showCorrectAnswer && clickAnswer(id, answer.id)}
     >
       {removeAsciiFrom(answer.content)}
     </span>
